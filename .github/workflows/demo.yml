@@ -1,16 +1,6 @@
 name: Demo
 
-on:
-  workflow_dispatch:
-    inputs:
-      browser:
-        type: choice
-        description: Which browser to test
-        required: true
-        options:
-          - chrome
-          - firefox
-          - edge
+on: [workflow_dispatch]
 
 jobs:
   test:
@@ -20,9 +10,14 @@ jobs:
     container:
       image: node:16
 
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: ['chrome', 'firefox', 'edge']
+
     services:
       selenium:
-        image: selenium/standalone-${{ github.event.inputs.browser }}
+        image: selenium/standalone-${{ matrix.browser }}
 
     steps:
       - uses: actions/checkout@v2
@@ -31,13 +26,13 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - run: npm ci
-      - run: npm run selenium
+      - run: npm run test
         env:
-          BROWSER: ${{ github.event.inputs.browser }}
+          BROWSER: ${{ matrix.browser }}
       - uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: screenshots
+          name: ${{ matrix.browser }}
           path: screenshots/
       - run: |
           npx yatt-pipe \
