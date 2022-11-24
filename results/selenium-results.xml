@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="5.598" tests="1" failures="0">
-  <testsuite name="Root Suite" timestamp="2022-11-24T17:40:57" tests="0" time="0.000" failures="0">
+<testsuites name="Mocha Tests" time="0.005" tests="5" failures="1">
+  <testsuite name="" timestamp="2022-11-24T17:54:15" tests="0" time="0.000" failures="0">
   </testsuite>
-  <testsuite name="add note" timestamp="2022-11-24T17:40:57" tests="1" file="/Users/home/Desktop/demo-selenium-yatt-pipe/test.js" time="5.596" failures="0">
-    <testcase name="add note should add a note and display on the page" time="5.594" classname="should add a note and display on the page">
+  <testsuite name="Root Suite.search" timestamp="2022-11-24T17:54:15" tests="5" file="/Users/home/Desktop/demo-selenium-yatt-pipe/test.mjs" time="0.004" failures="1">
+    <testcase name="&quot;before all&quot; hook for &quot;should search for &quot;Selenium dev&quot;&quot;" time="0.001" classname="search">
+      <failure message="No BROWSER environment variable set" type="Error"><![CDATA[Error: No BROWSER environment variable set
+    at Context.<anonymous> (file:///Users/home/Desktop/demo-selenium-yatt-pipe/test.mjs:32:19)
+    at processImmediate (node:internal/timers:466:21)]]></failure>
     </testcase>
   </testsuite>
 </testsuites>
