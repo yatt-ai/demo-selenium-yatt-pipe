@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha test.mjs",
-    "selenium": "node_modules/mocha/bin/mocha --no-timeouts --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=results/selenium-results.xml test.js"
+    "selenium": "node_modules/mocha/bin/mocha --reporter node_modules/mocha-junit-reporter --reporter-options jenkinsMode=1,outputs=1,mochaFile=results/selenium-results.xml"
   },
   "devDependencies": {
     "chromedriver": "^107.0.3",
