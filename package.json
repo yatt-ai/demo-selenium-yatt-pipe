@@ -8,7 +8,7 @@
     "selenium": "node_modules/mocha/bin/mocha --no-timeouts --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=results/selenium-results.xml test.js"
   },
   "devDependencies": {
-    "@testmo/testmo-cli": "^1.0.8",
+    "chromedriver": "^107.0.3",
     "chai": "^4.3.4",
     "mocha": "^9.1.3",
     "mocha-junit-reporter": "^2.0.2",
