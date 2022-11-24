@@ -26,7 +26,7 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - run: npm ci
-      - run: npm run test
+      - run: npm run selenium
         env:
           BROWSER: ${{ matrix.browser }}
       - uses: actions/upload-artifact@v2
