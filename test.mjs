@@ -1,6 +1,5 @@
-const { Builder, By, Key, until } = require("selenium-webdriver");
-
-var assert = require("chai").assert;
+import { Builder, By, Key, until } from 'selenium-webdriver';
+import { assert } from 'chai';
 
 describe('search', async function () {
     this.timeout(10000);
