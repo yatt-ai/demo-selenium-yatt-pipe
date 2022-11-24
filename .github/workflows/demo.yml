@@ -33,7 +33,6 @@ jobs:
         if: always()
         with:
           name: ${{ matrix.browser }}
-          path: screenshots/
       - run: |
           npx yatt-pipe \
             -c creds.json \

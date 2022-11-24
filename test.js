@@ -1,14 +1,10 @@
-import { Builder, By, Key, until } from 'selenium-webdriver';
-import { assert } from 'chai';
-import * as fs from 'fs';
+const { Builder, By, Key, until } = require("selenium-webdriver");
+
+var assert = require("chai").assert;
 
 describe('search', async function () {
     this.timeout(10000);
     let driver;
-
-    if (!fs.existsSync('./screenshots')){
-        fs.mkdirSync('./screenshots');
-    }
 
     // A helper function to start a web search
     const search = async (term) => {
@@ -53,15 +49,6 @@ describe('search', async function () {
     // After each test, take a screenshot and close the browser
     afterEach(async function () {
         if (driver) {
-            // Take a screenshot of the result page
-            const filename = this.currentTest.fullTitle()
-                .replace(/['"]+/g, '')
-                .replace(/[^a-z0-9]/gi, '_')
-                .toLowerCase();;
-            const encodedString = await driver.takeScreenshot();
-            await fs.writeFileSync(`./screenshots/${filename}.png`,
-                encodedString, 'base64');
-
             // Close the browser
             await driver.quit();
         }
