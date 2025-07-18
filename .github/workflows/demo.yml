@@ -8,36 +8,29 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: node:16
+      image: node:18
 
     strategy:
       fail-fast: false
       matrix:
-        browser: ['chrome', 'firefox', 'edge']
+        browser: ["chrome", "firefox", "edge"]
 
     services:
       selenium:
         image: selenium/standalone-${{ matrix.browser }}
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '16'
-          cache: 'npm'
+          node-version: "18"
+          cache: "npm"
       - run: npm ci
       - run: npm run test-junit
         env:
           BROWSER: ${{ matrix.browser }}
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: ${{ matrix.browser }}
           path: screenshots/
-      - run: |
-          npx yatt-pipe \
-            -c creds.json \
-            -s results/mocha-test-results.xml \
-            -T junit \
-            -t yatt \
-            -p
