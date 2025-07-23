@@ -9,8 +9,8 @@
     },
     "packageManager": "npm@8.0.0",
     "scripts": {
-        "test": "npx mocha test.mjs",
-        "test-junit": "npx mocha test.mjs --reporter mocha-junit-reporter --reporter-options jenkinsMode=1,outputs=1,mochaFile=results/mocha-test-results.xml"
+        "test": "npx mocha test/**/*.mjs",
+        "test-junit": "npx mocha test/**/*.mjs --reporter mocha-junit-reporter --reporter-options jenkinsMode=1,outputs=1,mochaFile=results/mocha-test-results.xml"
     },
     "devDependencies": {
         "chromedriver": "^114.0.0",
